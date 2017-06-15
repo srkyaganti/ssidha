@@ -1,0 +1,1 @@
+$(document).ready(function(){$("body").bind("cut copy paste",function(a){a.preventDefault()});$("body").on("contextmenu",function(a){return false})});
