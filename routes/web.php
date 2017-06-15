@@ -17,9 +17,12 @@ Route::group(['middleware' => 'guest'], function() {
 
 	Route::get('thankyou', 'PagesController@thankyou');
 	
-	Route::get('enquiry', 'FormsController@enquiry');
+	Route::post('enquiry', 'FormsController@enquiry');
 	Route::post('vendor', 'FormsController@vendor');
 
+	Route::get('login', 'LoginController@getLogin');
+	Route::post('login', 'LoginController@postLogin');
+	
 	// Password Reset
 	Route::get('password/reset/{code}','PasswordController@getReset');
 	Route::post('password/reset/{code}','PasswordController@postReset');
@@ -30,4 +33,18 @@ Route::group(['middleware' => 'guest'], function() {
 
 Route::group(['middleware' => 'user'], function() {
 	
+	Route::get('logout', 'LoginController@logout');
+
+	//Dashboard navigation links
+	Route::get('careersform', 'DashboardController@careers');
+	Route::get('enquiryform', 'DashboardController@enquiry');
+	Route::get('vendorform', 'DashboardController@vendor');
+	Route::get('profile', 'DashboardController@profile');
+
+	Route::post('updatepassword', 'DashboardController@updatePassword');
+
+	//Dashboard viewing profiles
+	Route::get('viewcareer/{email}', 'DashboardController@viewCareer');
+	Route::get('viewenquiry/{email}', 'DashboardController@viewEnquiry');
+	Route::get('viewvendor/{email}', 'DashboardController@viewVendor');
 });

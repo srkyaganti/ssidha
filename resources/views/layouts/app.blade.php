@@ -73,6 +73,8 @@
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
                         </li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -80,6 +82,8 @@
                         <li><a href="#">Privacy Policy</a>
                         </li>
                         <li><a href="#">Terms of Use</a>
+                        </li>
+                        <li><a href="{{ url('login') }}">Login</a>
                         </li>
                     </ul>
                 </div>

@@ -407,7 +407,8 @@
                     <div class="row">
                     	<div class="col-md-6 col-lg-6">
                     		<h2 class="section-heading">Enquiry Form</h2>
-                    		<form action="{{ url('enquiry') }}" method="GET" id="enquiryForm">
+                    		<form action="{{ url('enquiry') }}" method="POST">
+                                {{ csrf_field() }}
                                 <div class="form-group">
                                     <h5 class="section-heading">Name</h5>
                                     <input type="text" class="form-control" name="Name" required>
@@ -418,7 +419,7 @@
                                 </div>
                                 <div class="form-group">
                                 	<h5 class="section-heading">Phone Number</h5>
-									<input type="text" class="form-control" name="PhoneNumber" required>
+									<input type="number" class="form-control" name="PhoneNumber" required>
                                 </div>
                                 <div class="form-group">
                                 	<h5 class="section-heading">Message</h5>
@@ -433,6 +434,7 @@
                         	<h2 class="section-heading">Vendor Contact</h2>
                 			<div class="form-group">
                 				<form action="{{ url('vendor') }}" method="POST" id="vendorForm">
+                                    {{ csrf_field() }}
                                     <div class="form-group">
 	                                    <h5 class="section-heading">Name</h5>
 	                                    <input type="text" class="form-control" name="Name" required>
@@ -443,7 +445,7 @@
 	                                </div>
 	                                <div class="form-group">
 	                                	<h5 class="section-heading">Phone Number</h5>
-										<input type="text" class="form-control" name="PhoneNumber" required>
+										<input type="number" class="form-control" name="PhoneNumber" required>
 	                                </div>
 	                                <div class="form-group">
 	                                	<h5 class="section-heading">Product/Service</h5>
@@ -476,51 +478,4 @@
             </div>
         </div>
     </section>
-@endsection
-
-@section('scripts')
-
-<script>
-$( "#enquiryForm" ).submit(function( event ) {
- 
-  event.preventDefault();
-
-    var $form = $( this ),
-    data = $("#enquiryForm").serialize(),
-    url = $form.attr( "action" );
-
-    console.log(data);
-
-  var posting = $.get(url,data);
- 
-  posting.done(function( data ) {
-    var content = $( data ).find( "#content" );
-    $( "#result" ).empty().append( content );
-  });
-});
-</script>
-
-<script>
-// Attach a submit handler to the form
-$( "#vendorForm" ).submit(function( event ) {
- 
-  // Stop form from submitting normally
-  event.preventDefault();
- 
-  // Get some values from elements on the page:
-  var $form = $( this ),
-    term = $form.find( "input[name='s']" ).val(),
-    url = $form.attr( "action" );
- 
-  // Send the data using post
-  var posting = $.post( url, { s: term } );
- 
-  // Put the results in a div
-  posting.done(function( data ) {
-    var content = $( data ).find( "#content" );
-    $( "#result" ).empty().append( content );
-  });
-});
-</script>
-
 @endsection

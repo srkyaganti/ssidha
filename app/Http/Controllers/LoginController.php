@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Sentinel;
 
 class LoginController extends Controller
 {
-    public function login(Request $request)
+	public function getLogin()
+	{
+		return view('pages.login');
+	}
+
+
+    public function postLogin(Request $request)
     {
     	$this->validate($request,[
 			'email' => 'required|max:255|email',
@@ -21,10 +28,16 @@ class LoginController extends Controller
 		$remember = false;
 
 		if (Sentinel::authenticate($credentials, $remember))
-			return redirect('dashboard');
+			return redirect('careersform');
 
-		$errors = collect()->push('Email/Mobile number and password do not match!');
+		$errors = collect()->push('Email and password do not match!');
 
 		return back()->withInput()->with('errors', $errors);
     }
+
+    public function logout()
+	{
+		Sentinel::logout();
+		return redirect('/');
+	}
 }

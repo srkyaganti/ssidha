@@ -13,35 +13,6 @@ class FormsController extends Controller
 {
     public function enquiry(Request $request)
     {
-
-        $validator = Validator::make($request->all(), [
-            'Name' => 'required|min:3|alpha',
-            'Email' => 'required|email',
-            'PhoneNumber' => 'required|numeric|digits:10',
-            'Message' => 'required|max:500'
-        ]);
-
-        $errors = $validator->errors()->all();
-
-        foreach($errors as $error)
-        {
-           echo $error;
-        }
-        //echo implode(" ",$validator->errors()->all());
-        
-        if ($validator->fails()) {
-            return $validator->errors()->all();
-            //return response()->json(['errors' => , 'status' => 400], 200);
-        }
-
-        if( count($errors) > 0)
-        {
-            return response()->json([
-                'name' => 'Abigail',
-                'state' => 'CA'
-            ]);
-        }
-
     	$enquiry = new Enquiry;
     	
     	$enquiry->name = $request->Name;
