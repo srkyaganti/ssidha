@@ -63,7 +63,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy;{{date('Y')}} SSIDHA</span>
+                    <span class="copyright">Copyright &copy;{{date('Y')}} SSIDHA</span><br>
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                        <li><a href="{{ url('login') }}">Login</a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
@@ -78,14 +86,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                        <li><a href="{{ url('login') }}">Login</a>
-                        </li>
-                    </ul>
+                    <span class="copyright">Designed with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://srkyaganti.github.io" target="_blank">Srikar Yaganti</a></span>
                 </div>
             </div>
         </div>

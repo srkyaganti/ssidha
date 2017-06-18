@@ -84,7 +84,7 @@
     @yield('modals')
   </div>
   <footer class="main-footer pull-right">
-    <strong>Copyright &copy; {{ date('Y') }} SSIDHA.</strong>
+    <strong>Copyright &copy; {{ date('Y') }} SSIDHA.</strong>s
   </footer>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
